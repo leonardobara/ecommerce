@@ -1,2 +1,4 @@
-Microservices/Services.Api.Library/obj
-Microservices/Services.Api.Library/bin
+Microservices/Services.ProductCatalog.Api/obj
+Microservices/Services.ProductCatalog.Api/bin
+Microservices/Services.Security.Api/obj
+Microservices/Services.Security.Api/bin
