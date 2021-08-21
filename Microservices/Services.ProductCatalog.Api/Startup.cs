@@ -43,6 +43,15 @@ namespace Services.ProductCatalog.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Product Catalog Microservice", Version = "v1" });
             });
+
+            services.AddCors(options => {
+                options.AddPolicy("Development", rule => 
+                rule.AllowCredentials()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin());
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +59,7 @@ namespace Services.ProductCatalog.Api
         {
             if (env.IsDevelopment())
             {
+                app.UseCors("Development");
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Services.Api.Library v1"));
